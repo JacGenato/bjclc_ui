@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
+import DashboardNavbar from './DashboardNavbar';
 
 const APP_BAR_MOBILE = 64;
 const APP_BAR_DESKTOP = 92;
@@ -27,6 +28,7 @@ const MainStyle = styled('div')(({ theme }) => ({
 export const DashboardLayout = () => {
   return (
     <RootStyle>
+      <DashboardNavbar />
       <MainStyle>
         <Outlet />
       </MainStyle>
