@@ -3,3 +3,9 @@ export function getPost() {
     data.json()
   );
 }
+
+export function getPosts() {
+  return fetch('https://localhost:7136/Post/GetPosts').then((data) =>
+    data.json()
+  );
+}
