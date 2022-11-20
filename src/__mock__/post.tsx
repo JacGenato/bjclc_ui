@@ -1,7 +1,7 @@
-export function getPost() {
-  return fetch('https://localhost:7136/Post/GetPostById?id=1').then((data) =>
-    data.json()
-  );
+export function getPost(id: any) {
+  return fetch(
+    `https://localhost:7136/Post/GetPostById?id=` + id
+  ).then((data) => data.json());
 }
 
 export function getPosts() {

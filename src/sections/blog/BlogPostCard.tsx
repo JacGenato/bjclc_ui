@@ -134,6 +134,7 @@ const BlogPostCard = ({ title, coverImage, createdDate, id }: PostProps) => {
           </Typography>
 
           <TitleStyle
+            href={`/post/${id}`}
             color="inherit"
             variant="subtitle2"
             underline="hover"

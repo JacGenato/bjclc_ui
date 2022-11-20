@@ -15,7 +15,7 @@ export const Router = () => {
           path: '/',
           element: <Home />,
         },
-        { path: 'post', element: <Post /> },
+        { path: 'post/:id', element: <Post /> },
         { path: 'posts', element: <Posts /> },
       ],
     },
