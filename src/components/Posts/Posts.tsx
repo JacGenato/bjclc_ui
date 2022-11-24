@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import { getPosts } from '../../__mock__/post';
+import { findPost } from '../../__mock__/post';
 // material
-import {
-  Grid,
-  Button,
-  Container,
-  Stack,
-  Typography,
-  Card,
-  CardContent,
-} from '@mui/material';
+import { Grid, Container, Stack, Typography } from '@mui/material';
 import BlogPostCard from '../../sections/blog/BlogPostCard';
+import BlogSearch from '../../sections/blog/BlogSearch';
 
 const Posts = () => {
   const [posts, setPosts] = useState<
     { id: number; title: string; coverImage: string; createdDate: string }[]
   >([]);
+
+  function searchPost(text: string) {
+    findPost(text).then((data) => {
+      setPosts(data);
+    });
+  }
 
   useEffect(() => {
     getPosts().then((data) => {
@@ -42,7 +41,9 @@ const Posts = () => {
         direction="row"
         alignItems="center"
         justifyContent="space-between"
-      ></Stack>
+      >
+        <BlogSearch findPosts={searchPost} />
+      </Stack>
 
       <Grid container spacing={3}>
         {posts.map((post) => (

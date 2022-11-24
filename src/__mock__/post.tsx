@@ -9,3 +9,9 @@ export function getPosts() {
     data.json()
   );
 }
+
+export function findPost(keyword: string) {
+  return fetch(
+    'https://localhost:7136/Post/Search?keyword=' + keyword
+  ).then((data) => data.json());
+}
