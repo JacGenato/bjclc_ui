@@ -22,7 +22,17 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = [
+  {
+    name: 'Home',
+    link: '',
+  },
+
+  {
+    name: 'Posts',
+    link: 'posts',
+  },
+];
 
 export default function DrawerAppBar(props: Props) {
   const { window } = props;
@@ -40,9 +50,9 @@ export default function DrawerAppBar(props: Props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <ListItem key={item.name} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -75,8 +85,12 @@ export default function DrawerAppBar(props: Props) {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
+              <Button
+                href={`/${item.link}`}
+                key={item.name}
+                sx={{ color: '#fff' }}
+              >
+                {item.name}
               </Button>
             ))}
           </Box>
