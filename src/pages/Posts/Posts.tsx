@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { getPosts } from '../../__mock__/post';
 import { findPost } from '../../__mock__/post';
 // material
-import { Grid, Container, Stack, Typography } from '@mui/material';
+import { Grid, Button, Container, Stack, Typography } from '@mui/material';
 import BlogPostCard from '../../sections/blog/BlogPostCard';
 import BlogSearch from '../../sections/blog/BlogSearch';
+import Iconify from '../../components/Iconify';
 
 const Posts = () => {
   const [posts, setPosts] = useState<
@@ -32,8 +34,16 @@ const Posts = () => {
         mb={5}
       >
         <Typography variant="h4" gutterBottom>
-          Blog
+          Blogs
         </Typography>
+        <Button
+          variant="contained"
+          component={RouterLink}
+          to="/create"
+          startIcon={<Iconify icon="eva:plus-fill" />}
+        >
+          New Post
+        </Button>
       </Stack>
 
       <Stack
